@@ -9,7 +9,10 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     // Binary Search Tree tests
+    cout << "starting..." << endl;
     BinarySearchTree<char,int> bt;
+    bt.print();
+    cout << "declared!" << endl;
     bt.insert(std::make_pair('a',1));
     bt.insert(std::make_pair('b',2));
     
