@@ -663,17 +663,19 @@ BinarySearchTree<Key, Value>::getSmallestNode() const
 template<typename Key, typename Value>
 Node<Key, Value>* BinarySearchTree<Key, Value>::internalFind(const Key& key) const
 {
-    iterator temp = begin();
-    while (temp != end()){
-        if (temp->first == key){
-            return temp.current_;
+    Node<Key, Value>* current = this->root_;
+    while (current != nullptr) {
+        if (key == current->getKey()) {
+            return current;
+        } else if (key < current->getKey()) {
+            current = current->getLeft();
         } else {
-            ++temp;
+            current = current->getRight();
         }
     }
-
     return nullptr;
 }
+
 
 /**
  * Return true iff the BST is balanced.
